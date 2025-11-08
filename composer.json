@@ -1,0 +1,65 @@
+{
+  "name": "wikitrek/exocomp",
+  "description": "Exocomp - A modular maintenance bot for MediaWiki and Wikibase",
+  "type": "project",
+  "version": "1.0.0",
+  "homepage": "https://github.com/wikitrek/exocomp",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Luca Mauri",
+      "homepage": "https://www.lucamauri.com"
+    }
+  ],
+  "keywords": [
+    "mediawiki",
+    "wikibase",
+    "bot",
+    "maintenance",
+    "automation",
+    "star-trek"
+  ],
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://gitpull.it/source/boz-mw.git",
+      "comment": "Note: boz-mw is installed manually in parent directory, not via Composer"
+    }
+  ],
+  "require": {
+    "php": ">=8.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Exocomp\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Exocomp\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit --bootstrap=phpunit/load.php --testdox phpunit",
+    "lint": "php -l src/ && php -l modules/",
+    "lint:strict": "php -l src/ && php -l modules/ && phpstan analyse src/",
+    "check": [
+      "@lint",
+      "@test"
+    ]
+  },
+  "support": {
+    "issues": "https://github.com/wikitrek/exocomp/issues",
+    "source": "https://github.com/wikitrek/exocomp",
+    "docs": "https://github.com/wikitrek/exocomp/wiki"
+  },
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/wikitrek"
+    }
+  ]
+}
